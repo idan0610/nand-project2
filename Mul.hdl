@@ -1,0 +1,62 @@
+/**
+* The chip will multiply 2 numbers.
+*/
+
+CHIP Mul{
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+		// Divide to 2 cases with Mux by the current bit of b (0 or 1). If the
+		// bit is 0, add a line of zeros. If the bit is 1, add a line of
+		// the current shifted a. After each Mux, ShiftLeft a.
+		Mux16(a[0..15]=false, b=a, sel=b[0], out=b0);
+		ShiftLeft(in=a, out=s1);
+		Mux16(a[0..15]=false, b=s1, sel=b[1], out=b1);
+		ShiftLeft(in=s1, out=s2);
+		Mux16(a=false, b=s2, sel=b[2], out=b2);
+		ShiftLeft(in=s2, out=s3);
+		Mux16(a=false, b=s3, sel=b[3], out=b3);
+		ShiftLeft(in=s3, out=s4);
+		Mux16(a=false, b=s4, sel=b[4], out=b4);
+		ShiftLeft(in=s4, out=s5);
+		Mux16(a=false, b=s5, sel=b[5], out=b5);
+		ShiftLeft(in=s5, out=s6);
+		Mux16(a=false, b=s6, sel=b[6], out=b6);
+		ShiftLeft(in=s6, out=s7);
+		Mux16(a=false, b=s7, sel=b[7], out=b7);
+		ShiftLeft(in=s7, out=s8);
+		Mux16(a=false, b=s8, sel=b[8], out=b8);
+		ShiftLeft(in=s8, out=s9);
+		Mux16(a=false, b=s9, sel=b[9], out=b9);
+		ShiftLeft(in=s9, out=s10);
+		Mux16(a=false, b=s10, sel=b[10], out=b10);
+		ShiftLeft(in=s10, out=s11);
+		Mux16(a=false, b=s11, sel=b[11], out=b11);
+		ShiftLeft(in=s11, out=s12);
+		Mux16(a=false, b=s12, sel=b[12], out=b12);
+		ShiftLeft(in=s12, out=s13);
+		Mux16(a=false, b=s13, sel=b[13], out=b13);
+		ShiftLeft(in=s13, out=s14);
+		Mux16(a=false, b=s14, sel=b[14], out=b14);
+		ShiftLeft(in=s14, out=s15);
+		Mux16(a=false, b=s15, sel=b[15], out=b15);
+		
+		// Add All the results together to get the final output.
+		Add16(a=b0, b=b1, out=sum1);
+		Add16(a=sum1, b=b2, out=sum2);
+		Add16(a=sum2, b=b3, out=sum3);
+		Add16(a=sum3, b=b4, out=sum4);
+		Add16(a=sum4, b=b5, out=sum5);
+		Add16(a=sum5, b=b6, out=sum6);
+		Add16(a=sum6, b=b7, out=sum7);
+		Add16(a=sum7, b=b8, out=sum8);
+		Add16(a=sum8, b=b9, out=sum9);
+		Add16(a=sum9, b=b10, out=sum10);
+		Add16(a=sum10, b=b11, out=sum11);
+		Add16(a=sum11, b=b12, out=sum12);
+		Add16(a=sum12, b=b13, out=sum13);
+		Add16(a=sum13, b=b14, out=sum14);
+		Add16(a=sum14, b=b15, out=out);
+		
+}

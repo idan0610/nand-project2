@@ -1,0 +1,26 @@
+daph.kaplan, idan0610
+===============================================================================
+Dafna Kaplan, ID 204092613, dafna.kaplan@cs.huji.ac.il
+Idan Refaeli, ID 305681132, idan.refaeli@cs.huji.ac.il
+===============================================================================
+
+                           Project 2 - Combinational Chips
+                           -------------------------------
+  
+
+Submitted Files
+---------------
+README 					- This file.
+Add16.hdl 				- CHIP for Adding 2 binary numbers
+ALU.hdl 				- CHIP for Arithmetic Logic Unit
+FullAdder.hdl 			- CHIP for Adding 3 bits
+HalfAdder.hdl 			- CHIP for Adding 2 bits
+Inc16.hdl 				- CHIP for Adding 1 to binary number
+Mul.hdl 				- CHIP for Multiplying 2 binary numbers
+Or16Way.hdl 			- CHIP for 16 way OR
+ShiftLeft.hdl			- CHIP for Shifting binary number to the left.
+ShiftRight.hdl			- CHIP for Shifting binary number to the right.
+
+Remarks
+-------
+We added the 0r16Way chip as a helper chip for the ALU chip.
